@@ -1,0 +1,50 @@
+# FLOP Network — reports and feedback
+
+The public intake for the **running** FLOP Network: bugs in nodes you operate, verification
+disputes, gateway problems, docs gaps, and feature requests. The code lives elsewhere; this
+repository holds the issues, the discussions, and the triage process.
+
+## Where things go
+
+| You have | Go to |
+|---|---|
+| Anything exploitable — verification bypass, slashing evasion, theft from an escrow, HTLC or voucher flow | **Private** report, per [SECURITY.md](SECURITY.md). Never a public issue. |
+| A miner or validator misbehaving, crashing, or failing to sync | [Node bug](../../issues/new?template=node-bug.yml) |
+| An inference rejected (or accepted) when it should not have been | [Verification dispute](../../issues/new?template=verification.yml) |
+| On-chain behaviour that contradicts the spec — a reward, slash, fee or settlement that came out wrong | [Protocol behaviour](../../issues/new?template=protocol.yml) |
+| The hosted gateway or API returning errors or wrong prices | [Gateway](../../issues/new?template=gateway.yml) |
+| Docs that are wrong, missing, or out of date | [Docs](../../issues/new?template=docs.yml) |
+| Something you want the network or its tooling to do | [Feature request](../../issues/new?template=feature.yml) |
+| An erratum, ambiguity, or challenge against the **specification** itself | [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper/issues/new/choose) |
+| A question, or an idea you want to talk through first | [Discussions](../../discussions) |
+
+The gateway is a convenience service run by FLOP Labs, not part of the protocol. A gateway outage
+is not a network failure, and reports about it are kept separate on purpose.
+
+## What does not belong here
+
+- Exploits, in any form, including "I think this might be exploitable". See [SECURITY.md](SECURITY.md).
+- Price, token, or listing questions. There is no FLOP price and nothing here will discuss one.
+- Support for third-party wallets, exchanges, or hosting providers.
+
+## Triage
+
+Every new issue starts as `status:triage`. A maintainer labels it by `area:` and `type:`, then
+moves it to `status:accepted`, `status:needs-info`, or `status:wontfix`. An issue waiting on
+`status:needs-info` for 14 days is marked stale and closes 7 days later unless someone replies.
+Issues that turn out to be code work may be transferred to the relevant repository; they keep
+their history and get `status:moved-to-core`.
+
+## Links
+
+- [flop.finance](https://flop.finance) — project home
+- [Testnet](https://flop.finance/testnet/) — how to join as a miner or validator
+- [Whitepaper](https://flop.finance/whitepaper/) and [Yellow Paper](https://github.com/flop-labs/yellowpaper)
+- [Devnet explorer](https://explorer.devnet.flop.network) and [faucet](https://faucet.flop.network)
+- [ask.flop.finance](https://ask.flop.finance) — searchable docs assistant
+
+## License
+
+Templates and documentation here are licensed under either of [Apache License, Version
+2.0](LICENSE-APACHE) or [MIT license](LICENSE-MIT), at your option. Content you post in issues and
+discussions stays yours, under the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).

@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability (private)
+    url: https://github.com/flop-labs/network/security/advisories/new
+    about: >-
+      Verification bypass, slashing evasion, escrow/HTLC/voucher theft — anything exploitable.
+      Never file these as a public issue. See SECURITY.md.
+  - name: Specification erratum, ambiguity, or challenge
+    url: https://github.com/flop-labs/yellowpaper/issues/new/choose
+    about: >-
+      Problems with the Yellow Paper itself go to flop-labs/yellowpaper. Use this repository for
+      the running network.
+  - name: Question or idea
+    url: https://github.com/flop-labs/network/discussions
+    about: Ask in Discussions. Issues are for actionable reports.
+  - name: Docs assistant
+    url: https://ask.flop.finance
+    about: Searches the published docs; answers most setup questions.

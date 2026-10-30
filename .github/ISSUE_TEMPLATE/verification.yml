@@ -1,0 +1,74 @@
+name: Verification dispute
+description: An inference was rejected or slashed when it should not have been, or accepted when it should not.
+title: "verification: "
+labels: ["status:triage", "type:bug", "area:verification"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Nondeterminism reports are only useful with the hardware, precision and batch details on
+        **both** sides — the fields below are required for that reason. If you can make the
+        verifier accept work that was not done, that is a [private
+        report](https://github.com/flop-labs/network/security/advisories/new), not an issue.
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - devnet
+        - testnet
+    validations:
+      required: true
+  - type: dropdown
+    id: direction
+    attributes:
+      label: Direction
+      options:
+        - honest work was rejected or slashed
+        - bad work was accepted
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model and revision
+      description: Model ID and the pinned publisher revision or model hash.
+      placeholder: "Qwen/Qwen3-8B @ <revision> / model_hash 0x…"
+    validations:
+      required: true
+  - type: input
+    id: refs
+    attributes:
+      label: Request or receipt
+      description: Input hash, receipt ID, transaction hash, or block — whatever identifies it.
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Outputs
+      description: What the miner produced and what the verifier expected or recomputed.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: miner-side
+    attributes:
+      label: Miner hardware and settings
+      description: GPU, driver, CUDA, backend and version, precision/dtype, batch size, attention kernel.
+    validations:
+      required: true
+  - type: textarea
+    id: verifier-side
+    attributes:
+      label: Verifier hardware and settings
+      description: The same, for the side that checked it. Write "unknown" if you cannot see it.
+    validations:
+      required: true
+  - type: textarea
+    id: tolerance
+    attributes:
+      label: Observed vs expected tolerance
+      description: The deviation measured, the band or threshold applied, and how you measured it.
+    validations:
+      required: true

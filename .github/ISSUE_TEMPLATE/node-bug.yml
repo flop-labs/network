@@ -1,0 +1,71 @@
+name: Node bug
+description: A miner or validator crashes, misbehaves, or fails to sync.
+title: "node: "
+labels: ["status:triage", "type:bug", "area:node"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Anything exploitable goes to a [private security
+        advisory](https://github.com/flop-labs/network/security/advisories/new), not here.
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role
+      options:
+        - miner (worker)
+        - validator
+        - full / RPC node
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - devnet
+        - testnet
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release tag, image digest, or commit SHA you ran.
+      placeholder: "v0.1.215 / sha256:… / 37ace0a"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware and drivers
+      description: >-
+        OS and kernel; for miners also GPU model and count, driver, CUDA version, and serving
+        backend (e.g. vLLM version).
+      placeholder: |
+        Ubuntu 24.04, 6.8.0
+        1x L40S, driver 570.x, CUDA 12.8, vLLM 0.x
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The relevant lines, not the whole file. Redact keys and seeds.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: chain-ref
+    attributes:
+      label: Block, epoch, or transaction
+      description: Where on chain it shows, if it does.
+    validations:
+      required: false

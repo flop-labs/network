@@ -1,0 +1,25 @@
+name: Docs
+description: Documentation is wrong, missing, or out of date.
+title: "docs: "
+labels: ["status:triage", "type:bug", "area:docs"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Page or command
+      description: URL, section, or the command that failed when followed.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong or missing
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What it should say
+      description: Optional.
+    validations:
+      required: false

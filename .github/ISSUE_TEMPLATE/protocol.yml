@@ -1,0 +1,48 @@
+name: Protocol behaviour
+description: The running network did something the spec says it should not — a reward, slash, fee, or settlement came out wrong.
+title: "protocol: "
+labels: ["status:triage", "type:bug", "area:economics"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        For observed behaviour on a live network. A critique of the design itself — a loose bound,
+        an incentive you think fails — goes to [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper/issues/new/choose).
+        Anything exploitable goes to a [private
+        report](https://github.com/flop-labs/network/security/advisories/new).
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - devnet
+        - testnet
+    validations:
+      required: true
+  - type: input
+    id: spec-ref
+    attributes:
+      label: Yellow Paper reference
+      description: Version and section or requirement ID the behaviour contradicts.
+      placeholder: "v0.5 §7.2 / R6.1a / D-0528"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the spec says should happen
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened instead
+      description: Amounts, accounts, events. Link the explorer page where you can.
+    validations:
+      required: true
+  - type: input
+    id: chain-ref
+    attributes:
+      label: Block, epoch, or transaction
+    validations:
+      required: true

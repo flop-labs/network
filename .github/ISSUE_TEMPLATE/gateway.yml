@@ -1,0 +1,39 @@
+name: Gateway
+description: The hosted gateway or API returned errors, wrong prices, or stuck receipts.
+title: "gateway: "
+labels: ["status:triage", "type:bug", "area:gateway"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        The gateway is a convenience service run by FLOP Labs, not part of the protocol. Use this
+        form for gateway problems; if the chain itself misbehaved, use **Protocol behaviour** or
+        **Node bug**. Never paste API keys.
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint
+      placeholder: "POST https://api.flop.network/…"
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When (UTC)
+      placeholder: "2026-10-30 14:05Z"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Request (without keys), status code, response body, and any request or receipt ID.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: false

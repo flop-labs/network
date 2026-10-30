@@ -1,0 +1,36 @@
+name: Feature request
+description: Something you want the network, its nodes, or its tooling to do.
+title: "feature: "
+labels: ["status:triage", "type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Not sure yet? Talk it through in [Discussions → Ideas](https://github.com/flop-labs/network/discussions/categories/ideas)
+        first. Changes to the protocol rules themselves go to [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper).
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you are trying to do and what stops you today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - node (miner / validator)
+        - verification
+        - economics
+        - gateway / API
+        - docs
+        - other
+    validations:
+      required: true

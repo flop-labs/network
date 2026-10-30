@@ -1,0 +1,14 @@
+title: "[Q] "
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        [ask.flop.finance](https://ask.flop.finance) answers most setup questions from the docs.
+        Never post keys, seeds, or anything exploitable.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What you are trying to do, what you tried, and where you got stuck.
+    validations:
+      required: true

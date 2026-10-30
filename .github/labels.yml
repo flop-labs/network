@@ -1,0 +1,21 @@
+# Source of truth for this repository's labels. .github/workflows/labels.yml syncs it on push.
+# Labels not listed here are left alone.
+- {name: "area:node", color: "1d76db", description: "Miner, validator, or full node"}
+- {name: "area:verification", color: "1d76db", description: "PoUI verification, TOPLOC, re-execution, attestation"}
+- {name: "area:economics", color: "1d76db", description: "Rewards, slashing, fees, settlement"}
+- {name: "area:gateway", color: "1d76db", description: "Hosted gateway / API (not protocol)"}
+- {name: "area:docs", color: "1d76db", description: "Documentation"}
+- {name: "area:yellowpaper", color: "1d76db", description: "Belongs to the specification; may move to flop-labs/yellowpaper"}
+- {name: "type:bug", color: "d73a4a", description: "Behaves differently from what it documents or promises"}
+- {name: "type:feature", color: "a2eeef", description: "New capability"}
+- {name: "type:critique", color: "fbca04", description: "Argument that a mechanism does not work well"}
+- {name: "type:question", color: "d876e3", description: "Needs an answer, not a change"}
+- {name: "status:triage", color: "ededed", description: "Not yet looked at by a maintainer"}
+- {name: "status:needs-info", color: "f9d0c4", description: "Waiting on the reporter; goes stale after 14 days"}
+- {name: "status:accepted", color: "0e8a16", description: "Confirmed and will be worked on"}
+- {name: "status:wontfix", color: "ffffff", description: "Will not be worked on"}
+- {name: "status:moved-to-core", color: "5319e7", description: "Transferred to a code repository"}
+- {name: "net:devnet", color: "c5def5", description: "Seen on devnet"}
+- {name: "net:testnet", color: "c5def5", description: "Seen on testnet"}
+- {name: "net:mainnet", color: "c5def5", description: "Seen on mainnet"}
+- {name: "stale", color: "cfd3d7", description: "Set by the stale workflow; closes in 7 days"}

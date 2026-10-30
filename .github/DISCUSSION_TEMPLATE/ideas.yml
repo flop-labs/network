@@ -1,0 +1,8 @@
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: The problem it solves and who it helps. Rough is fine.
+    validations:
+      required: true

@@ -1,0 +1,28 @@
+name: Stale needs-info
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          only-labels: "status:needs-info"
+          days-before-issue-stale: 14
+          days-before-issue-close: 7
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          stale-issue-label: stale
+          stale-issue-message: >-
+            This has waited on the reporter for 14 days. It will close in 7 days unless someone
+            adds the requested information.
+          close-issue-message: >-
+            Closed for lack of the requested information. Reply with it and we will reopen.
+          remove-stale-when-updated: true
