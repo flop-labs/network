@@ -10,9 +10,6 @@ contact_links:
     about: >-
       Problems with the Yellow Paper itself go to flop-labs/yellowpaper. Use this repository for
       the running network.
-  - name: Question or idea
-    url: https://github.com/flop-labs/network/discussions
-    about: Ask in Discussions. Issues are for actionable reports.
   - name: Docs assistant
     url: https://ask.flop.finance
     about: Searches the published docs; answers most setup questions.

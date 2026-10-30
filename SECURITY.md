@@ -50,10 +50,9 @@ have, report privately and we will move it into the open together.
 - **Credit** in the advisory, unless you prefer to stay anonymous.
 - **Coordinated disclosure.** We will agree a timeline with you rather than impose one.
 
-## Scope and honesty about it
+## Scope
 
-FLOP is **pre-mainnet**. Devnet and testnet tokens carry no value, and there is **no bug bounty
-program at this time** — we will not pretend otherwise to attract reports. What we can offer is a
+FLOP is **pre-mainnet**; devnet and testnet tokens carry no value. What we offer for a report is a
 real technical response, public credit, and a record of what your finding changed.
 
 Availability problems on devnet and testnet (a node that falls over under load) are welcome but
