@@ -1,0 +1,1 @@
+# One "<service> <owner/repo>" pair per line: which repository may publish which service.
