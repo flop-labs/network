@@ -40,12 +40,22 @@ Public release notes for FLOP services are published as [releases](../../release
 `<service>/v<version>`, such as `rest-gateway/v1.4.0`. These releases carry notes only; their
 source archives contain this repository, not the service.
 
-- **Email or GitHub notifications:** choose Watch → Custom → Releases on this repository.
+- **GitHub account:** choose Watch → Custom → Releases on this repository. GitHub notifies you
+  in its inbox, and by email if your notification settings allow it.
 - **Feed reader:** subscribe to [releases.atom](https://github.com/flop-labs/network/releases.atom).
+  No account is needed.
+- **Slack:** once GitHub's Slack app is in a channel, run
+  `/github subscribe flop-labs/network releases`.
 - **Agents and scripts:** read `GET /repos/flop-labs/network/releases`. The feed shows recent
   releases only, so use the API for history.
 
-These options cover every service. To follow one service, filter on the tag prefix.
+These options cover every service here. To follow one service, filter on the tag prefix.
+
+A service with its own public repository can be followed the same way. For example,
+[technocore-chat](https://github.com/flop-labs/technocore-chat/releases) publishes notes-only
+releases, so watch that repository, add its
+[releases.atom](https://github.com/flop-labs/technocore-chat/releases.atom) to a feed reader, or run
+`/github subscribe flop-labs/technocore-chat releases` in Slack.
 
 ## Links
 
