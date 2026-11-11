@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Tests stage-release.sh against a fake gh. Run: .github/scripts/stage-release.test.sh
-set -euo pipefail
 # The cases run through pass "$@", which shellcheck cannot follow.
 # shellcheck disable=SC2317
+# Tests stage-release.sh against a fake gh. Run: .github/scripts/stage-release.test.sh
+set -euo pipefail
 
 here=$(cd "$(dirname "$0")" && pwd)
 tmp=$(mktemp -d)
