@@ -38,10 +38,20 @@ fi
 # A missing file is the normal first run. Any other lookup failure leaves file_sha empty too,
 # and the write below then fails rather than overwrites.
 file_sha=$(gh api "repos/$TARGET_REPO/contents/$path" --jq .sha 2>/dev/null || true)
-commit=$(jq -n --arg message "release: $SERVICE $VERSION" --arg notes "$NOTES" --arg sha "$file_sha" \
+put_body=$(jq -n --arg message "release: $SERVICE $VERSION" --arg notes "$NOTES" --arg sha "$file_sha" \
   '{message: $message, content: ($notes | @base64), branch: "main"}
-   + (if $sha == "" then {} else {sha: $sha} end)' |
-  gh api -X PUT "repos/$TARGET_REPO/contents/$path" --input - --jq .commit.sha)
+   + (if $sha == "" then {} else {sha: $sha} end)')
+# Releases of different services stage in parallel, and a write that lands while main moves
+# can be rejected with a conflict. Retry a few times; anything still failing stops the run.
+commit=""
+for attempt in 1 2 3; do
+  if commit=$(gh api -X PUT "repos/$TARGET_REPO/contents/$path" --input - --jq .commit.sha <<<"$put_body"); then
+    break
+  fi
+  commit=""
+  [[ $attempt == 3 ]] || sleep $((attempt * 5))
+done
+[[ -n $commit ]] || die "could not commit $path"
 
 body=$(jq -n --arg tag "$tag" --arg commit "$commit" --arg name "$SERVICE $VERSION" --arg notes "$NOTES" \
   '{tag_name: $tag, target_commitish: $commit, name: $name, body: $notes, draft: true,

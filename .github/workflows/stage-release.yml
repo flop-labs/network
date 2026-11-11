@@ -26,8 +26,10 @@ on:
 
 permissions: {}
 
+# One group per release: a second request for the same release waits, and requests for
+# other releases run alongside it instead of replacing each other in a shared queue.
 concurrency:
-  group: stage-release
+  group: stage-release-${{ inputs.service }}-${{ inputs.version }}
   cancel-in-progress: false
 
 jobs:
