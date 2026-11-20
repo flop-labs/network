@@ -19,3 +19,11 @@
 - {name: "net:testnet", color: "c5def5", description: "Seen on testnet"}
 - {name: "net:mainnet", color: "c5def5", description: "Seen on mainnet"}
 - {name: "stale", color: "cfd3d7", description: "Set by the stale workflow; closes in 7 days"}
+- {name: "type:application", color: "5319e7", description: "Operator application; not a bug report or automatic admission"}
+- {name: "intake:operator", color: "5319e7", description: "Validator or RPC team intake; one issue per team and network"}
+- {name: "status:intake", color: "ededed", description: "Awaiting operator review or cohort; protected from automatic support triage"}
+- {name: "role:validator", color: "1d76db", description: "Interested in validator operation; does not imply activation"}
+- {name: "role:rpc", color: "1d76db", description: "Offering a dedicated keyless RPC origin; does not imply pool admission"}
+- {name: "intake:sync-qualified", color: "0e8a16", description: "Operations verified identity, finalized sync and retained-volume restart"}
+- {name: "intake:rpc-active", color: "0e8a16", description: "Operations qualified and enabled an RPC origin in the public pool"}
+- {name: "intake:validator-active", color: "0e8a16", description: "Operations verified finalized validator activation evidence"}

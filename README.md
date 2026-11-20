@@ -9,6 +9,7 @@ repository holds the issues, the triage process, and public release notes for FL
 | You have | Go to |
 |---|---|
 | Anything exploitable — verification bypass, slashing evasion, theft from an escrow, HTLC or voucher flow | **Private** report, per [SECURITY.md](SECURITY.md). Never a public issue. |
+| Applying to run a validator or contribute RPC capacity | [Operator application](../../issues/new?template=operator-application.yml) · [Intake process](OPERATOR-INTAKE.md) |
 | A miner or validator misbehaving, crashing, or failing to sync | [Node bug](../../issues/new?template=node-bug.yml) |
 | On-chain behaviour that contradicts the spec — a reward, slash, fee or settlement that came out wrong | [Protocol behaviour](../../issues/new?template=protocol.yml) |
 | The hosted gateway or API returning errors or wrong prices | [Gateway](../../issues/new?template=gateway.yml) |
@@ -28,7 +29,7 @@ is not a network failure, and reports about it are kept separate on purpose.
 
 ## Triage
 
-Every new issue starts as `status:triage`. A maintainer labels it by `area:` and `type:`, then
+Operator applications use `status:intake` and the [intake process](OPERATOR-INTAKE.md). Other new issues start as `status:triage`. A maintainer labels it by `area:` and `type:`, then
 moves it to `status:accepted`, `status:needs-info`, or `status:wontfix`. An issue waiting on
 `status:needs-info` for 14 days is marked stale and closes 7 days later unless someone replies.
 Issues that turn out to be code work may be transferred to the relevant repository; they keep

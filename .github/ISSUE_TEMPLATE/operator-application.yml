@@ -1,0 +1,118 @@
+name: Validator / RPC operator application
+description: Register a team for keyless node qualification, optional public RPC contribution, and later approved validator activation.
+title: "operator: "
+labels: ["type:application", "intake:operator", "status:intake", "area:node"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        One application per team per network. Update an existing application instead of duplicating it.
+        Start with the [public Devnet RPC guide](https://gist.github.com/sv/7c8b93f3868bc15e3b6eabe0578057e3#run-a-flop-devnet-rpc-replica).
+        Devnet keyless sync is available without Tailscale. Public signing qualification remains pending.
+        A Testnet application records interest until its own release and intake are announced.
+        This issue is public. Never upload seeds, private keys, account.json, .env, keystores,
+        enrollment tokens, credentials or TLS private keys. No SSH access is requested.
+  - type: input
+    id: team
+    attributes:
+      label: Team ID
+      description: Stable public team or operator name, reused across your nodes and receipts.
+      placeholder: example-team
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options: [devnet, testnet]
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Requested role
+      options:
+        - validator candidate
+        - RPC contributor
+        - validator candidate and RPC contributor
+    validations:
+      required: true
+  - type: input
+    id: existing
+    attributes:
+      label: Existing application or introduction
+      description: Link your previous issue, network#10 comment, or application on the other network. Leave empty if this is your first application.
+    validations:
+      required: false
+  - type: textarea
+    id: capacity
+    attributes:
+      label: Planned capacity and host
+      description: Start with one keyless node per team. Describe intended scale without renting the whole fleet before review.
+      placeholder: |
+        Requested validator seats / existing FLOP seats:
+        RPC nodes offered (active / standby):
+        Provider / region:
+        CPU / RAM / SSD capacity / OS:
+        Public host label or P2P address (if prepared):
+    validations:
+      required: true
+  - type: dropdown
+    id: preparation
+    attributes:
+      label: Preparation stage
+      options:
+        - planning a host
+        - syncing a keyless node
+        - synced; restart evidence pending
+        - sync and restart evidence ready
+        - already invited to the administrator-assisted validator flow
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sync and restart evidence
+      description: Fill after sync, or update this issue later. Give full hashes and public values only; do not attach raw configuration or unredacted logs.
+      placeholder: |
+        Guide revision / exact node image digest:
+        Chain spec SHA-256 / expected genesis:
+        Advertised public P2P multiaddress / Peer ID:
+        No Tailscale on this keyless host:
+        Observation 1: UTC, local/reference finalized heights, common height/hash, readiness:
+        Observation 2: UTC, local/reference finalized heights, common height/hash, readiness:
+        After restart: same observations, advancing finality, unchanged Peer ID:
+        Same Compose project and volume retained:
+        Public SS58 address (if already prepared; not needed for keyless sync):
+    validations:
+      required: false
+  - type: textarea
+    id: rpc
+    attributes:
+      label: Optional RPC pool contribution
+      description: Pool admission is separate. Keep the origin keyless. Set up mTLS only after FLOP supplies its client CA and edge egress addresses.
+      placeholder: |
+        Origin hostname / fixed public IPv4 (if prepared):
+        Archive retention:
+        Sustainable HTTP and WebSocket capacity:
+        Additional replicas / failure domains:
+    validations:
+      required: false
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Questions or blockers
+      description: Use this thread for follow-up. Request a private channel here if needed; do not publish personal incident contacts or credentials.
+    validations:
+      required: false
+  - type: checkboxes
+    id: acknowledgments
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked for an existing application for this team and network and will keep evidence in one thread.
+          required: true
+        - label: This application contains only public information and no secrets or private configuration files.
+          required: true
+        - label: I understand that applying, syncing, and RPC pool participation do not grant validator activation, funding, rewards, or a Testnet seat.
+          required: true
