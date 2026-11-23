@@ -9,7 +9,8 @@ body:
         One application per team per network. Update an existing application instead of duplicating it.
         Start with the [public Devnet RPC guide](https://gist.github.com/sv/7c8b93f3868bc15e3b6eabe0578057e3#run-a-flop-devnet-rpc-replica).
         Devnet keyless sync is available without Tailscale. Public signing qualification remains pending.
-        A Testnet application records interest until its own release and intake are announced.
+        You can apply for Testnet now. Leave qualification pending until FLOP publishes the Testnet package and network inputs.
+        Use a fresh database and the published inputs for the selected network. Devnet inputs and receipts do not qualify a Testnet node.
         This issue is public. Never upload seeds, private keys, account.json, .env, keystores,
         enrollment tokens, credentials or TLS private keys. No SSH access is requested.
   - type: input
@@ -73,8 +74,12 @@ body:
     id: evidence
     attributes:
       label: Sync and restart evidence
-      description: Fill after sync, or update this issue later. Give full hashes and public values only; do not attach raw configuration or unredacted logs.
+      description: >-
+        Add evidence after sync. Once published, the network-specific qualify-rpc.mjs collector produces a public-safe receipt.
+        Include your restart attestation separately. Maintainers independently verify the evidence.
+        Give full hashes and public values only. Keep raw configuration and unredacted logs private.
       placeholder: |
+        Public-safe collector receipt (once published):
         Guide revision / exact node image digest:
         Chain spec SHA-256 / expected genesis:
         Advertised public P2P multiaddress / Peer ID:
@@ -82,7 +87,7 @@ body:
         Observation 1: UTC, local/reference finalized heights, common height/hash, readiness:
         Observation 2: UTC, local/reference finalized heights, common height/hash, readiness:
         After restart: same observations, advancing finality, unchanged Peer ID:
-        Same Compose project and volume retained:
+        Restart attestation: same Compose project and volume retained:
         Public SS58 address (if already prepared; not needed for keyless sync):
     validations:
       required: false
@@ -90,9 +95,10 @@ body:
     id: rpc
     attributes:
       label: Optional RPC pool contribution
-      description: Pool admission is separate. Keep the origin keyless. Set up mTLS only after FLOP supplies its client CA and edge egress addresses.
+      description: >-
+        Pool admission is separate. Keep the origin keyless. Share the dedicated RPC origin hostname, fixed IP and incident contacts privately with FLOP.
+        Set up mTLS only after FLOP supplies its client CA and edge egress addresses.
       placeholder: |
-        Origin hostname / fixed public IPv4 (if prepared):
         Archive retention:
         Sustainable HTTP and WebSocket capacity:
         Additional replicas / failure domains:
