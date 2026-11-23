@@ -100,6 +100,18 @@ class OperatorIntakeTests(unittest.TestCase):
         ):
             self.assertIn(label, self.labels)
 
+    def test_model_sponsorship_routes_to_testnet_intake(self):
+        template = "model-upload-sponsorship.yml"
+        form = load(f".github/ISSUE_TEMPLATE/{template}")
+        applied = set(form["labels"])
+        self.assertEqual(
+            {label for label in applied if label.startswith("net:")}, {"net:testnet"}
+        )
+        self.assertTrue({"status:intake", "intake:model-upload"} <= applied)
+        self.assertNotIn("intake:operator", applied)
+        for name in ["README.md", "SUPPORT.md"]:
+            self.assertIn(f"template={template}", (ROOT / name).read_text())
+
     def test_duplicate_yaml_keys_are_rejected(self):
         with self.assertRaises(ValueError):
             yaml.load("labels: [a]\nlabels: [b]\n", Loader=UniqueLoader)

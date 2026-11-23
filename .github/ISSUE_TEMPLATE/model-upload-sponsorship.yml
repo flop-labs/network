@@ -1,0 +1,59 @@
+name: Testnet model upload sponsorship
+description: Request testnet FLOP to register a model and upload its weights to validators.
+title: "testnet model upload: "
+labels: ["intake:model-upload", "status:intake", "net:testnet"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        FLOP Labs can cover the registration fees and refundable data availability (DA) deposit for an approved model upload on **testnet only**. You can apply before funding your account or using the faucet.
+
+        Open one request per checkpoint revision and update it as you go. A maintainer will review the estimate and confirm what FLOP will cover before the upload. Model admission and listing are separate decisions.
+
+        This issue is public. Share only public addresses and model references. Keep seed phrases, private keys, access tokens, and signed download URLs private.
+  - type: input
+    id: checkpoint
+    attributes:
+      label: Model and exact revision
+      description: Link the model and identify the exact weights with a commit SHA or artifact digest.
+      placeholder: "https://huggingface.co/owner/model at <commit SHA>"
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Permission to distribute the weights
+      description: Link the license or describe your permission to copy these weights to testnet validators.
+    validations:
+      required: true
+  - type: input
+    id: size
+    attributes:
+      label: Upload size
+      description: Give the packed checkpoint size in bytes if known, or an approximate weight size with units.
+      placeholder: "About 80 GiB"
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: What will you test with this model?
+      description: A sentence or two is enough. If the model is already registered on testnet, include its model hash so we can reuse the registration.
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: Public testnet publisher address
+      description: Give the SS58 address that will register or already owns the model.
+    validations:
+      required: true
+  - type: textarea
+    id: estimate
+    attributes:
+      label: Estimated sponsorship amount (optional)
+      description: If available, give the refundable DA deposit for the weights and file table, plus any registration or upload fees. Include the units from your estimate. FLOP can estimate these from the checkpoint if you leave this blank.
+  - type: markdown
+    attributes:
+      value: |
+        **Maintainer follow-up** — Record the approved amount in testnet FLOP and who will upload. After the upload, link the finalized registration and validator storage references here so the publisher can verify the result.
