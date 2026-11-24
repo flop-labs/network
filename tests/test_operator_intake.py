@@ -47,10 +47,12 @@ class OperatorIntakeTests(unittest.TestCase):
             ids = [field["id"] for field in form.get("body", []) if "id" in field]
             self.assertEqual(len(ids), len(set(ids)), path.name)
 
-    def test_application_does_not_claim_qualification_or_require_synced_host(self):
+    def test_registration_does_not_claim_qualification_or_require_synced_host(self):
+        self.assertIn("registration", self.form["name"].lower())
+        self.assertNotRegex(str(self.form).lower(), r"\b(applications?|applicants?|apply|applying)\b")
         applied = set(self.form["labels"])
         self.assertTrue(
-            {"type:application", "intake:operator", "status:intake"} <= applied
+            {"type:registration", "intake:operator", "status:intake"} <= applied
         )
         self.assertFalse(
             applied

@@ -1,15 +1,15 @@
-name: Validator / RPC operator application
-description: Register a team for keyless node qualification, optional public RPC contribution, and later approved validator activation.
+name: Validator / RPC operator registration
+description: Register your team and network. Add node readiness and optional RPC contribution details as they become available.
 title: "operator: "
-labels: ["type:application", "intake:operator", "status:intake", "area:node"]
+labels: ["type:registration", "intake:operator", "status:intake", "area:node"]
 body:
   - type: markdown
     attributes:
       value: >-
-        One application per team per network. Update an existing application instead of duplicating it.
+        Register once per team and network. Use the same issue to add nodes and update your progress.
         Start with the [public Devnet RPC guide](https://gist.github.com/sv/7c8b93f3868bc15e3b6eabe0578057e3#run-a-flop-devnet-rpc-replica).
         Devnet keyless sync is available without Tailscale. Public signing qualification remains pending.
-        You can apply for Testnet now. Leave qualification pending until FLOP publishes the Testnet package and network inputs.
+        You can register for Testnet now, even while planning a host. Leave qualification pending until FLOP publishes the Testnet package and network inputs.
         Use a fresh database and the published inputs for the selected network. Devnet inputs and receipts do not qualify a Testnet node.
         This issue is public. Never upload seeds, private keys, account.json, .env, keystores,
         enrollment tokens, credentials or TLS private keys. No SSH access is requested.
@@ -31,27 +31,27 @@ body:
   - type: dropdown
     id: role
     attributes:
-      label: Requested role
+      label: Operator role
       options:
-        - validator candidate
+        - validator operator
         - RPC contributor
-        - validator candidate and RPC contributor
+        - validator operator and RPC contributor
     validations:
       required: true
   - type: input
     id: existing
     attributes:
-      label: Existing application or introduction
-      description: Link your previous issue, network#10 comment, or application on the other network. Leave empty if this is your first application.
+      label: Existing registration or introduction
+      description: Link your previous issue, network#10 comment, or registration on the other network. Leave empty if this is your first registration.
     validations:
       required: false
   - type: textarea
     id: capacity
     attributes:
       label: Planned capacity and host
-      description: Start with one keyless node per team. Describe intended scale without renting the whole fleet before review.
+      description: Start with one keyless node per team. Record your planned node count and add individual node details as hosts become ready.
       placeholder: |
-        Requested validator seats / existing FLOP seats:
+        Planned validator nodes / existing FLOP seats:
         RPC nodes offered (active / standby):
         Provider / region:
         CPU / RAM / SSD capacity / OS:
@@ -116,9 +116,9 @@ body:
     attributes:
       label: Before submitting
       options:
-        - label: I checked for an existing application for this team and network and will keep evidence in one thread.
+        - label: I checked for an existing registration for this team and network and will keep evidence in one thread.
           required: true
-        - label: This application contains only public information and no secrets or private configuration files.
+        - label: This registration contains only public information and no secrets or private configuration files.
           required: true
-        - label: I understand that applying, syncing, and RPC pool participation do not grant validator activation, funding, rewards, or a Testnet seat.
+        - label: I understand that this registration records our team and nodes. Validator activation, sponsorship and rewards each have their own requirements.
           required: true
