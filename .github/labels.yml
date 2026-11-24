@@ -21,6 +21,7 @@
 - {name: "stale", color: "cfd3d7", description: "Set by the stale workflow; closes in 7 days"}
 - {name: "type:registration", color: "5319e7", description: "Team and network recorded for validator or RPC participation"}
 - {name: "intake:operator", color: "5319e7", description: "Validator or RPC team intake; one issue per team and network"}
+- {name: "intake:model-upload", color: "5319e7", description: "Testnet sponsorship request for model registration and validator storage"}
 - {name: "status:intake", color: "ededed", description: "Awaiting operator review or cohort; protected from automatic support triage"}
 - {name: "role:validator", color: "1d76db", description: "Interested in validator operation; does not imply activation"}
 - {name: "role:rpc", color: "1d76db", description: "Offering a dedicated keyless RPC origin; does not imply pool admission"}

@@ -4,6 +4,7 @@
   Issues are for actionable reports.
 - **Ideas** — once concrete, open a [feature request](https://github.com/flop-labs/network/issues/new?template=feature.yml).
 - **Validator / RPC registrations** — use the [dedicated operator form](https://github.com/flop-labs/network/issues/new?template=operator-application.yml), then update that issue with sync and restart evidence. See the [intake process](OPERATOR-INTAKE.md).
+- **Testnet model uploads** — request [model upload sponsorship](https://github.com/flop-labs/network/issues/new?template=model-upload-sponsorship.yml) before using the faucet. FLOP Labs can cover registration and validator storage for an approved checkpoint.
 - **Running a miner or validator** — start at [flop.finance/testnet](https://flop.finance/testnet/);
   [ask.flop.finance](https://ask.flop.finance) answers most setup questions from the docs.
 - **Access only an operator can grant** — an allowlist entry, operator quota, gateway allowance
