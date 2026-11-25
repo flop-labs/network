@@ -18,6 +18,7 @@ repository holds the issues, the triage process, and public release notes for FL
 | Something you want the network or its tooling to do | [Feature request](../../issues/new?template=feature.yml) |
 | An erratum, ambiguity, or challenge against the **specification** itself | [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper/issues/new/choose) |
 | A setup question | [ask.flop.finance](https://ask.flop.finance), which answers from the published docs |
+| The Testnet genesis hash or the Vault metadata verifier key | [networks/testnet.md](networks/testnet.md) |
 
 The gateway is a convenience service run by FLOP Labs, not part of the protocol. A gateway outage
 is not a network failure, and reports about it are kept separate on purpose.
