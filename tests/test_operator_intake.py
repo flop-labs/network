@@ -47,10 +47,12 @@ class OperatorIntakeTests(unittest.TestCase):
             ids = [field["id"] for field in form.get("body", []) if "id" in field]
             self.assertEqual(len(ids), len(set(ids)), path.name)
 
-    def test_application_does_not_claim_qualification_or_require_synced_host(self):
+    def test_registration_does_not_claim_qualification_or_require_synced_host(self):
+        self.assertIn("registration", self.form["name"].lower())
+        self.assertNotRegex(str(self.form).lower(), r"\b(applications?|applicants?|apply|applying)\b")
         applied = set(self.form["labels"])
         self.assertTrue(
-            {"type:application", "intake:operator", "status:intake"} <= applied
+            {"type:registration", "intake:operator", "status:intake"} <= applied
         )
         self.assertFalse(
             applied
@@ -72,6 +74,20 @@ class OperatorIntakeTests(unittest.TestCase):
                 for item in self.fields["acknowledgments"]["attributes"]["options"]
             )
         )
+
+    def test_rpc_pool_details_are_private_and_public_evidence_is_optional(self):
+        rpc = self.fields["rpc"]
+        self.assertEqual(rpc["validations"]["required"], "false")
+        description = rpc["attributes"]["description"]
+        self.assertIn(
+            "Share the dedicated RPC origin hostname, fixed IP and incident contacts privately",
+            description,
+        )
+        self.assertNotRegex(rpc["attributes"]["placeholder"], r"(?i)hostname|ipv4|fixed ip")
+        evidence = self.fields["evidence"]
+        self.assertEqual(evidence["validations"]["required"], "false")
+        self.assertIn("public P2P multiaddress", evidence["attributes"]["placeholder"])
+        self.assertIn("restart attestation separately", evidence["attributes"]["description"])
 
     def test_intake_is_protected_while_other_needs_info_issues_still_expire(self):
         config = load(".github/workflows/stale.yml")["jobs"]["stale"]["steps"][0][
